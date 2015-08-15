@@ -12,8 +12,10 @@
             use SJL\GeraForm\InputType\Radio;
             use SJL\GeraForm\InputType\Checkbox;
             use SJL\GeraForm\InputType\Select;
+            use SJL\GeraForm\InputType\Submit;
             use SJL\GeraForm\Form;
 
+            // outros tipos serão adicionados conforme a necessidade
             $text = new Text("nome","Nome","","");
             $senha = new Password("senha","Senha","","");
             $radio1 = new Radio("sexo","Homem", "homem", "checked");
@@ -22,8 +24,9 @@
             $checkbox2 = new Checkbox("moto","Tenho moto", "moto", "");
             $checkbox3 = new Checkbox("bicicleta","Tenho bicicleta", "bicleta", "");
             $select = new Select("SO","Escolha seu SO",array("1"=>"windows","2"=>"linux","3"=>"unix"),"");
+            $submit = new Submit("enviar", "", "Enviar","");
 
-            $formulario = new Form("meuform", "_POST", "cadrasto.php", "");
+            $formulario = new Form("meuform", "post", "cadrasto.php", "id='form1'");
             $formulario->addInput($text);
             $formulario->addInput($senha);
             $formulario->addInput($radio1);
@@ -32,6 +35,7 @@
             $formulario->addInput($checkbox2);
             $formulario->addInput($checkbox3);
             $formulario->addInput($select);
+            $formulario->addInput($submit);
             echo $formulario->render();
         ?>
     </div>
