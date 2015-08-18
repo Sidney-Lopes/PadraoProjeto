@@ -16,7 +16,7 @@
             use SJL\GeraForm\Form;
 
             // outros tipos serão adicionados conforme a necessidade
-            $text = new Text("nome","Nome","","");
+            $nome = new Text("nome","Nome","","");
             $senha = new Password("senha","Senha","","");
             $radio1 = new Radio("sexo","Homem", "homem", "checked");
             $radio2 = new Radio("sexo","Mulher", "mulher", "");
@@ -26,17 +26,31 @@
             $select = new Select("SO","Escolha seu SO",array("1"=>"windows","2"=>"linux","3"=>"unix"),"");
             $submit = new Submit("enviar", "", "Enviar","");
 
-            $formulario = new Form("meuform", "post", "cadrasto.php", "id='form1'");
-            $formulario->addInput($text);
-            $formulario->addInput($senha);
-            $formulario->addInput($radio1);
-            $formulario->addInput($radio2);
-            $formulario->addInput($checkbox1);
-            $formulario->addInput($checkbox2);
-            $formulario->addInput($checkbox3);
-            $formulario->addInput($select);
-            $formulario->addInput($submit);
-            echo $formulario->render();
+            $formulario1 = new Form("meuform1", "post", "cadastro1.php", "id='form1'");
+            $formulario2 = new Form("meuform2", "post", "cadastro2.php", "id='form2'");
+            $formulario3 = new Form("meuform3", "post", "cadastro3.php", "id='form3'");
+            $formulario4 = new Form("meuform4", "post", "cadastro4.php", "id='form4'");
+
+            $formulario1->addInput($nome);
+            $formulario1->addInput($senha);
+            $formulario1->addInput($submit);
+
+            $formulario2->addInput($radio1);
+            $formulario2->addInput($radio2);
+            $formulario2->addInput($submit);
+
+            $formulario3->addInput($checkbox1);
+            $formulario3->addInput($checkbox2);
+            $formulario3->addInput($checkbox3);
+            $formulario3->addInput($submit);
+
+            $formulario4->addInput($select);
+            $formulario4->addInput($submit);
+
+            echo $formulario1->render();
+            echo $formulario2->render();
+            echo $formulario3->render();
+            echo $formulario4->render();
         ?>
     </div>
 

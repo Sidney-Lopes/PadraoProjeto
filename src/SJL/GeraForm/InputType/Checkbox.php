@@ -8,10 +8,10 @@ class Checkbox extends Input
     public function __construct($name, $label, $value, $attribute)
     {
         parent::__construct($name, $label, $value, $attribute);
-        $this->montaInput();
+        $this->createField();
     }
 
-    private function montaInput()
+    protected function createField()
     {
         $this->input .= "<br /><input type='checkbox' name='{$this->name}' value='{$this->value}' ";
         $this->input .= $this->attribute . " /> ";

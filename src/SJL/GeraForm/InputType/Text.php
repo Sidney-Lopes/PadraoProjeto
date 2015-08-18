@@ -8,10 +8,10 @@ class Text extends Input
     public function __construct($name, $label, $value, $attribute)
     {
         parent::__construct($name, $label, $value, $attribute);
-        $this->montaInput();
+        $this->createField();
     }
 
-    private function montaInput()
+    protected function createField()
     {
         $this->input  = !empty($this->label) ? $this->label . " : " : "";
         $this->input .= "<br /><input type='text' name='{$this->name}' value='{$this->value}' ";

@@ -22,4 +22,6 @@ abstract class Input implements InputForm {
     {
         return $this->input;
     }
+
+    abstract protected function createField();
 }

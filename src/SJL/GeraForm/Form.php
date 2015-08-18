@@ -2,11 +2,13 @@
 namespace SJL\GeraForm;
 
 use SJL\GeraForm\Abstrato\Input;
+use Validator;
 
 class Form {
 
     private $inputs = NULL;
     private $form = "";
+    private $validator;
 
     public function __construct($name, $method, $action, $attribute = "")
     {
@@ -16,6 +18,11 @@ class Form {
     public function addInput(Input $input)
     {
         $this->inputs[] = $input;
+    }
+
+    public function validator(Validator $validator)
+    {
+        $this->validator = $validator;
     }
 
     public function render()

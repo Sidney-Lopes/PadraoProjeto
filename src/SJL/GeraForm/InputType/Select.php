@@ -8,10 +8,10 @@ class Select extends Input
     public function __construct($name, $label, $value, $attribute)
     {
         parent::__construct($name, $label, $value, $attribute);
-        $this->montaInput();
+        $this->createField();
     }
 
-    private function montaInput()
+    protected function createField()
     {
         if(is_array($this->value)){
             $this->input  = "<br />";
