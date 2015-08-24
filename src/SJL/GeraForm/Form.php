@@ -1,12 +1,12 @@
 <?php
 namespace SJL\GeraForm;
 
-use SJL\GeraForm\Abstrato\Input;
+use SJL\GeraForm\InputFormInterface\InputForm;
 use Validator;
 
 class Form {
 
-    private $inputs = NULL;
+    private $elements = NULL;
     private $form = "";
     private $validator;
 
@@ -15,9 +15,9 @@ class Form {
         $this->form .= "<form name='{$name}' method='{$method}' action='{$action}' {$attribute} >";
     }
 
-    public function addInput(Input $input)
+    public function addElement(InputForm $element)
     {
-        $this->inputs[] = $input;
+        $this->elements[] = $element;
     }
 
     public function validator(Validator $validator)
@@ -27,9 +27,9 @@ class Form {
 
     public function render()
     {
-       if($this->inputs != NULL){
-           foreach($this->inputs as $input){
-                $this->form .= $input->getInput();
+       if($this->elements != NULL){
+           foreach($this->elements as $element){
+                $this->form .= $element->getInput();
            }
            $this->form .= "</form>";
            return $this->form;

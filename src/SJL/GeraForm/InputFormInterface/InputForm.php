@@ -2,7 +2,11 @@
 
 namespace SJL\GeraForm\InputFormInterface;
 
-interface InputForm {
-    public function __construct($name, $label, $value, $attribute);
+use SJL\GeraForm\Label;
+
+interface InputForm
+{
+    public function __construct($type, array $attributes);
     public function getInput();
+    public function setLabel(Label $label);
 }
