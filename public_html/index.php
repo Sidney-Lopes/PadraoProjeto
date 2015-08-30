@@ -15,34 +15,26 @@
             // outros tipos serão adicionados conforme a necessidade
 
             $nome = new Input("text", ["name"=>"nome", "value"=>""]);
-            $nomelabel = new Label("Nome");
-            $nome->setLabel($nomelabel);
+            label::setLabel($nome, "Nome");
 
             $senha = new Input("password",["name"=>"senha", "value"=>""]);
-            $senhalabel = new Label("Senha");
-            $senha->setLabel($senhalabel);
+            label::setLabel($senha, "Senha");
 
             $radio1 = new Input("radio",["name"=>"sexo", "value"=>"homem", "checked"=>"checked"]);
             $radio2 = new Input("radio",["name"=>"sexo", "value"=>"mulher"]);
-            $radio1label = new Label("Homem");
-            $radio2label = new Label("Mulher");
-            $radio1->setLabel($radio1label);
-            $radio2->setLabel($radio2label);
-
+            label::setLabel($radio1, "Homem");
+            label::setLabel($radio2, "Mulher");
 
             $checkbox1 = new Input("checkbox",["name"=>"carro", "value"=>"carro"]);
             $checkbox2 = new Input("checkbox",["name"=>"moto", "value"=>"moto"]);
             $checkbox3 = new Input("checkbox",["name"=>"bicicleta", "value"=>"bicicleta"]);
-            $checkbox1label = new Label("Tenho carro");
-            $checkbox2label = new Label("Tenho moto");
-            $checkbox3label = new Label("Tenho bicicleta");
-            $checkbox1->setLabel($checkbox1label);
-            $checkbox2->setLabel($checkbox2label);
-            $checkbox3->setLabel($checkbox3label);
+            label::setLabel($checkbox1, "Tenho carro");
+            label::setLabel($checkbox2, "Tenho moto");
+            label::setLabel($checkbox3, "Tenho bicicleta");
 
             $textarea = new Textarea("textarea",["rows"=>"4", "cols"=>"50", "name"=>"meutextarea"]);
-            $textarealabel = new Label("Mensagem");
-            $textarea->setLabel($textarealabel);
+            label::setLabel($textarea, "Mensagem");
+            $textarea->setContent("Algum conteudo");
 
             $submit = new Input("submit", ["name"=>"enviar", "value"=>"Enviar"]);
 
@@ -57,15 +49,15 @@
 
             $formulario2->addElement($radio1);
             $formulario2->addElement($radio2);
-            $formulario2->addElement($submit);
+            $formulario2->addElement(clone($submit));
 
             $formulario3->addElement($checkbox1);
             $formulario3->addElement($checkbox2);
             $formulario3->addElement($checkbox3);
-            $formulario3->addElement($submit);
+            $formulario3->addElement(clone($submit));
 
             $formulario4->addElement($textarea);
-            $formulario4->addElement($submit);
+            $formulario4->addElement(clone($submit));
 
             echo $formulario1->render();
             echo $formulario2->render();

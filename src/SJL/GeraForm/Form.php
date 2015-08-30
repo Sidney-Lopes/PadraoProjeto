@@ -29,7 +29,7 @@ class Form {
     {
        if($this->elements != NULL){
            foreach($this->elements as $element){
-                $this->form .= $element->getInput();
+                $this->form .= $element->createField();
            }
            $this->form .= "</form>";
            return $this->form;

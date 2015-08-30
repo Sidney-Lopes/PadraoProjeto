@@ -8,8 +8,7 @@ abstract class InputAbstract implements InputForm
 {
     protected $type;
     protected $attributes;
-    protected $input = "";
-    protected $objectLabel;
+    protected $field = "";
 
     public function __construct($type, array $attributes)
     {
@@ -17,17 +16,16 @@ abstract class InputAbstract implements InputForm
         $this->attributes = $attributes;
     }
 
-    public function getInput()
+    public function setField($field)
     {
-        return $this->input;
+        $this->field = $field;
     }
 
-    public function setLabel(Label $label)
+    public function getField()
     {
-        $this->objectLabel = $label;
-        $this->input = $this->objectLabel->openLabel() . $this->input . $this->objectLabel->closeLabel();
+        return $this->field;
     }
 
-    abstract protected function createField();
+    abstract public function createField();
 
 }

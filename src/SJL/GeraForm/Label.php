@@ -1,24 +1,14 @@
 <?php
 namespace SJL\GeraForm;
 
+use SJL\GeraForm\InputFormInterface\InputForm;
 
-class Label {
+abstract class Label {
 
-    private $opentag  = "<br /><label>";
-    private $closetag = "</label><br /> \n";
-    
-    public function  __construct($texto)
+    public static function setLabel(InputForm $element, $texto)
     {
-        $this->opentag .= "{$texto} : ";
-    }
-
-    public function openLabel()
-    {
-        return $this->opentag;
-    }
-
-    public function closeLabel()
-    {
-        return $this->closetag;
+        $field = $element->getField();
+        $field = "\n <br /><label> {$texto} : " . $field . " </label>";
+        $element->setField($field);
     }
 }
